@@ -1,0 +1,118 @@
+/* Add margin to the app title */
+.body-sidebar-container.expanded .body-sidebar .app-title {
+	margin-right: 10px;
+}
+/* Add the scroll bar to the sidebar */
+ .body-sidebar-top {
+	padding-top: 10px !important;
+	scrollbar-width: initial !important;
+	scrollbar-gutter: stable !important;
+	scrollbar-color: initial !important;
+}
+.body-sidebar-top:hover {
+	overflow: auto !important;
+}
+.body-sidebar-top::-webkit-scrollbar {
+	width: 8px !important;
+	margin-left: 10px !important;
+	background-color: transparent !important;
+}
+
+.body-sidebar-top::-webkit-scrollbar-track {
+	background-color: transparent !important;
+}
+
+.body-sidebar-top::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2) !important;
+}
+/* Add line height to the sidebar items */
+.body-sidebar-container.expanded .body-sidebar .sidebar-item-label {
+    line-height: 1.5 !important;
+	font-weight: 800 !important;
+}
+.standard-sidebar-section {
+	margin-bottom: 10px !important;
+	contain: layout style paint;
+}
+
+.standard-sidebar-section > summary {
+	list-style: none;
+}
+.standard-sidebar-section > summary::-webkit-details-marker {
+	display: none;
+}
+.standard-sidebar-section[open] > summary .sidebar-arrow {
+	transform: rotate(180deg);
+}
+.sidebar-arrow {
+	transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	will-change: transform;
+}
+.standard-sidebar-section[open] > summary {
+	background: var(--sidebar-active-color);
+}
+.standard-sidebar-section[open] > .items-container_d2asc {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+html[dir="ltr"] .body-sidebar {
+	padding-right: 0px !important;
+}
+html[dir="rtl"] .body-sidebar {
+	padding-left: 0px !important;
+}
+.items-container_d2asc {
+	overflow: hidden;
+	max-height: 0;
+	transform-origin: top;
+	transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+	            opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+	            transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	will-change: max-height, opacity, transform;
+	transform: translateZ(0) scaleY(0.95);
+	opacity: 0;
+	contain: layout style paint;
+	backface-visibility: hidden;
+	perspective: 1000px;
+}
+
+.standard-sidebar-section[open] > .items-container_d2asc {
+	max-height: 2000px;
+	transform: translateZ(0) scaleY(1);
+	opacity: 1;
+	transition-delay: 0s, 0.1s, 0s;
+}
+
+/* Smooth closing animation */
+.standard-sidebar-section.closing > .items-container_d2asc {
+	max-height: 0;
+	transform: translateZ(0) scaleY(0.95);
+	opacity: 0;
+	transition-delay: 0s, 0s, 0s; /* Removed delays */
+}
+
+.sidebar-section-title {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+	text-transform: uppercase;
+	padding: 0.5rem 0.75rem;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius);
+	transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+	            border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	will-change: background-color, border-color;
+}
+
+.sidebar-section-title:hover {
+	background-color: var(--hover-bg);
+	border-color: var(--border-color-hover);
+}
+
+/* Hide summary when sidebar is not expanded */
+.body-sidebar-container:not(.expanded) .sidebar-section-title {
+	display: none;
+}

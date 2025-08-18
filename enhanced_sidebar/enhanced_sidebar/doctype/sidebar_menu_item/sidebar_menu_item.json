@@ -1,0 +1,133 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "autoincrement",
+ "creation": "2025-08-18 02:01:03.523468",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "category",
+  "column_break_znea",
+  "link_to",
+  "section_break_zhde",
+  "route",
+  "url",
+  "column_break_chhu",
+  "workspace",
+  "icon_section",
+  "icon",
+  "custom_icon",
+  "use_custom_icon"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Sidebar Category"
+  },
+  {
+   "fieldname": "column_break_znea",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "link_to",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Link to",
+   "options": "Workspace\nCustom route\nURL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_zhde",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": " /",
+   "depends_on": "eval:doc.link_to!=\"URL\"",
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "read_only": 1,
+   "read_only_depends_on": "eval:doc.link_to=='Workspace'",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_chhu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.link_to=='Workspace'",
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "label": "Workspace",
+   "options": "Workspace"
+  },
+  {
+   "depends_on": "eval:doc.use_custom_icon!=true",
+   "fieldname": "icon",
+   "fieldtype": "Icon",
+   "label": "Icon"
+  },
+  {
+   "fieldname": "icon_section",
+   "fieldtype": "Section Break",
+   "label": "Icon"
+  },
+  {
+   "default": "0",
+   "fieldname": "use_custom_icon",
+   "fieldtype": "Check",
+   "label": "Use custom icon"
+  },
+  {
+   "depends_on": "eval:doc.link_to==\"URL\"",
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL (starting with https)",
+   "mandatory_depends_on": "eval:doc.link_to==\"URL\""
+  },
+  {
+   "depends_on": "eval:doc.use_custom_icon==true",
+   "fieldname": "custom_icon",
+   "fieldtype": "Attach Image",
+   "label": "Custom Icon (SVG only)"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-18 03:18:31.379454",
+ "modified_by": "Administrator",
+ "module": "Enhanced Sidebar",
+ "name": "Sidebar Menu Item",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name1"
+}
