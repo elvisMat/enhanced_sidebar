@@ -25,7 +25,22 @@ def get_sidebar_menu_items():
             fields=["name", "name1", "route", "url", "icon", "custom_icon", "use_custom_icon", "link_to"]
         )
         # Store the menu items under their category's name
-        categorized_menu_items[category.category_name] = sidebar_menu_items
+        if sidebar_menu_items:
+            categorized_menu_items[category.category_name] = sidebar_menu_items
+
+    # Fetch all sidebar menu items that do not have a category
+    uncategorized_items = frappe.get_all(
+        "Sidebar Menu Item",
+        filters={"category": ("is", "not set")},
+        fields=["name", "name1", "route", "url", "icon", "custom_icon", "use_custom_icon", "link_to"]
+    )
+
+    # Add uncategorized items to the "General" category
+    if uncategorized_items:
+        if "General" in categorized_menu_items:
+            categorized_menu_items["General"].extend(uncategorized_items)
+        else:
+            categorized_menu_items["General"] = uncategorized_items
 
     # Return the categorized menu items
     return categorized_menu_items 

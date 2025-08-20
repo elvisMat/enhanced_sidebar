@@ -1,0 +1,115 @@
+# Arabic translations for Enhanced Sidebar.
+# Copyright (C) 2025 Ibrahim Aboelsoud
+# This file is distributed under the same license as the Enhanced Sidebar project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Enhanced Sidebar VERSION\n"
+"Report-Msgid-Bugs-To: i.aboelsoud21@gmail.com\n"
+"POT-Creation-Date: 2025-08-20 20:37+0205\n"
+"PO-Revision-Date: 2025-08-20 20:37+0205\n"
+"Last-Translator: i.aboelsoud21@gmail.com\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+#. Label of the category (Link) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Category"
+msgstr "الفئة"
+
+#. Label of the category_name (Data) field in DocType 'Sidebar Category'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_category/sidebar_category.json
+msgid "Category Name"
+msgstr "اسم الفئة"
+
+#. Label of the custom_icon (Attach Image) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Custom Icon (SVG only)"
+msgstr "أيقونة مخصصة (SVG فقط)"
+
+#. Option for the 'Link to' (Select) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Custom route"
+msgstr "مسار مخصص"
+
+#. Label of the enable_top_navbar (Check) field in DocType 'Enhanced Navbar
+#. Settings'
+#: enhanced_sidebar/enhanced_sidebar/doctype/enhanced_navbar_settings/enhanced_navbar_settings.json
+msgid "Enable Top Navbar"
+msgstr "تفعيل شريط التنقل العلوي"
+
+#. Name of a DocType
+#: enhanced_sidebar/enhanced_sidebar/doctype/enhanced_navbar_settings/enhanced_navbar_settings.json
+msgid "Enhanced Navbar Settings"
+msgstr "إعدادات شريط التنقل المحسن"
+
+#: enhanced_sidebar/public/js/enhanced_sidebar.js:17
+#: enhanced_sidebar/public/js/enhanced_sidebar.js:18
+msgid "General"
+msgstr "عام"
+
+#. Label of the icon (Icon) field in DocType 'Sidebar Menu Item'
+#. Label of the icon_section (Section Break) field in DocType 'Sidebar Menu
+#. Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. Label of the link_to (Select) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Link to"
+msgstr "رابط إلى"
+
+#. Label of the name1 (Data) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Name"
+msgstr "الاسم"
+
+#. Label of the route (Data) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Route"
+msgstr "المسار"
+
+#. Name of a DocType
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_category/sidebar_category.json
+msgid "Sidebar Category"
+msgstr "فئة الشريط الجانبي"
+
+#. Name of a DocType
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Sidebar Menu Item"
+msgstr "عنصر قائمة الشريط الجانبي"
+
+#. Name of a role
+#: enhanced_sidebar/enhanced_sidebar/doctype/enhanced_navbar_settings/enhanced_navbar_settings.json
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_category/sidebar_category.json
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "System Manager"
+msgstr "مدير النظام"
+
+#. Option for the 'Link to' (Select) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "URL"
+msgstr "رابط URL"
+
+#. Label of the url (Data) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "URL (starting with https)"
+msgstr "رابط URL (يبدأ بـ https)"
+
+#. Label of the use_custom_icon (Check) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Use custom icon"
+msgstr "استخدام أيقونة مخصصة"
+
+#. Option for the 'Link to' (Select) field in DocType 'Sidebar Menu Item'
+#. Label of the workspace (Link) field in DocType 'Sidebar Menu Item'
+#: enhanced_sidebar/enhanced_sidebar/doctype/sidebar_menu_item/sidebar_menu_item.json
+msgid "Workspace"
+msgstr "مساحة العمل" 

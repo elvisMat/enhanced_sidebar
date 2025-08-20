@@ -3,7 +3,7 @@
 	margin-right: 10px;
 }
 /* Add the scroll bar to the sidebar */
- .body-sidebar-top {
+.body-sidebar-top {
 	padding-top: 10px !important;
 	scrollbar-width: initial !important;
 	scrollbar-gutter: stable !important;
@@ -27,7 +27,7 @@
 }
 /* Add line height to the sidebar items */
 .body-sidebar-container.expanded .body-sidebar .sidebar-item-label {
-    line-height: 1.5 !important;
+	line-height: 1.5 !important;
 	font-weight: 800 !important;
 }
 .standard-sidebar-section {
@@ -55,19 +55,13 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-html[dir="ltr"] .body-sidebar {
-	padding-right: 0px !important;
-}
-html[dir="rtl"] .body-sidebar {
-	padding-left: 0px !important;
-}
 .items-container_d2asc {
 	overflow: hidden;
 	max-height: 0;
 	transform-origin: top;
 	transition: max-height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-	            opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-	            transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	will-change: max-height, opacity, transform;
 	transform: translateZ(0) scaleY(0.95);
 	opacity: 0;
@@ -103,7 +97,7 @@ html[dir="rtl"] .body-sidebar {
 	border: 1px solid var(--border-color);
 	border-radius: var(--border-radius);
 	transition: background-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-	            border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		border-color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	will-change: background-color, border-color;
 }
 
@@ -115,4 +109,58 @@ html[dir="rtl"] .body-sidebar {
 /* Hide summary when sidebar is not expanded */
 .body-sidebar-container:not(.expanded) .sidebar-section-title {
 	display: none;
+}
+
+.body-sidebar-container:not(.expanded) .sahl-app-title {
+    display: none !important;
+}
+
+@media (min-width: 992px) {
+	.body-sidebar {
+		position: sticky;
+		border: 1px solid var(--border-color) !important;
+		height: calc(100vh - 20px) !important;
+		border-radius: 10px !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.main-section {
+		padding-block-end: 20px;
+		border-radius: 10px !important;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* IE and Edge */
+	}
+	.main-section::-webkit-scrollbar {
+		display: none; /* Chrome, Safari, Opera */
+	}
+	.main-section #body {
+		border: 3px solid var(--border-color) !important;
+		border-radius: 10px !important;
+	}
+
+	body {
+		display: flex;
+		max-height: 100vh;
+		padding: 10px !important;
+		gap: 26px; /* Set gap between children */
+		overflow: hidden !important;
+	}
+	.page-head {
+		top: 0px !important;
+		border-radius: 10px !important;
+	}
+	.form-tabs-sticky-down {
+		top: 0px !important;
+	}
+
+	[data-page-route="Workspaces"] .layout-main {
+		height: 100% !important;
+	}
+
+	/* New rule: Override max-width and margin when body has 'full-width' class */
+	body.full-width [data-page-route="Workspaces"] .layout-main {
+		max-width: none !important;
+		margin: 0 !important;
+	}
 }
