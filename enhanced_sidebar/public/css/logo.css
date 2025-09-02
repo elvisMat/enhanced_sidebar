@@ -1,0 +1,31 @@
+.app-switcher-dropdown {
+	cursor: default;
+}
+a.app-switcher-dropdown:hover {
+	background: none !important;
+}
+/* .sidebar-item-control,
+.sidebar-item-control:hover {
+	display: none !important;
+} */
+.sidebar-item-control button.btn-reset.drop-icon.show-in-edit-mode {
+	display: none !important;
+}
+a.app-switcher-dropdown.active-sidebar {
+	background: none !important;
+	box-shadow: none !important;
+	border-radius: none !important;
+}
+.app-switcher-menu {
+	display: none !important;
+}
+
+/* Hide the original Frappe logo block in the sidebar */
+.standard-sidebar-item > .d-flex:not(.custom-logo-block) {
+    display: none !important;
+}
+
+/* Vertically center the custom logo and title */
+.custom-logo-block {
+    align-items: center;
+}
