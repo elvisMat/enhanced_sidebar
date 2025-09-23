@@ -111,7 +111,7 @@
 	display: none;
 }
 
-.body-sidebar-container:not(.expanded) .sahl-app-title {
+.body-sidebar-container:not(.expanded) .enhanced-app-title {
     display: none !important;
 }
 
