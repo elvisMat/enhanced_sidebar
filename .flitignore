@@ -1,0 +1,8 @@
+# Exclude node_modules and other build artifacts
+node_modules/
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+*.log
