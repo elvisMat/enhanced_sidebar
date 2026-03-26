@@ -158,9 +158,5 @@
 		height: 100% !important;
 	}
 
-	/* New rule: Override max-width and margin when body has 'full-width' class */
-	body.full-width [data-page-route="Workspaces"] .layout-main {
-		max-width: none !important;
-		margin: 0 !important;
-	}
+
 }
