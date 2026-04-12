@@ -112,7 +112,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-12 15:12:47.043038",
+ "modified": "2026-04-12 15:15:30.310843",
  "modified_by": "Administrator",
  "module": "Enhanced Sidebar",
  "name": "Sidebar Menu Item",
@@ -130,6 +130,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "row_format": "Dynamic",

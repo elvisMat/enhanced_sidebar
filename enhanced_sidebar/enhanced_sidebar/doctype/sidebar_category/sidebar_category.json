@@ -31,7 +31,7 @@
    "link_fieldname": "category"
   }
  ],
- "modified": "2026-04-12 15:12:12.284535",
+ "modified": "2026-04-12 15:15:44.212183",
  "modified_by": "Administrator",
  "module": "Enhanced Sidebar",
  "name": "Sidebar Category",
@@ -49,6 +49,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "row_format": "Dynamic",
