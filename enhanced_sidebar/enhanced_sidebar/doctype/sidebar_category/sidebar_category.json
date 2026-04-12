@@ -17,6 +17,7 @@
    "unique": 1
   },
   {
+   "default": "All",
    "fieldname": "permitted_roles",
    "fieldtype": "Table MultiSelect",
    "label": "Roles",
@@ -31,7 +32,7 @@
    "link_fieldname": "category"
   }
  ],
- "modified": "2026-04-12 15:15:44.212183",
+ "modified": "2026-04-12 15:19:27.636743",
  "modified_by": "Administrator",
  "module": "Enhanced Sidebar",
  "name": "Sidebar Category",

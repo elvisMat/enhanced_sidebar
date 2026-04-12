@@ -56,7 +56,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-04-12 15:12:37.396979",
+ "modified": "2026-04-12 15:21:34.500443",
  "modified_by": "Administrator",
  "module": "Enhanced Sidebar",
  "name": "Enhanced Navbar Settings",
@@ -71,6 +71,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "row_format": "Dynamic",
