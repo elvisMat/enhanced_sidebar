@@ -10,6 +10,7 @@
   "category",
   "column_break_znea",
   "link_to",
+  "permitted_roles",
   "section_break_zhde",
   "route",
   "url",
@@ -100,12 +101,18 @@
    "fieldname": "custom_icon",
    "fieldtype": "Attach Image",
    "label": "Custom Icon (SVG only)"
+  },
+  {
+   "fieldname": "permitted_roles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Roles",
+   "options": "Has Role"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-18 03:18:31.379454",
+ "modified": "2026-04-12 15:12:47.043038",
  "modified_by": "Administrator",
  "module": "Enhanced Sidebar",
  "name": "Sidebar Menu Item",
