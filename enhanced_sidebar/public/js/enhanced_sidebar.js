@@ -1,6 +1,22 @@
 const original_Sidebar_class = frappe.ui.Sidebar;
 let sidebar_build_in_progress = false;
 
+const is_enhanced_sidebar_debug_enabled = () => {
+	try {
+		return (
+			window.ENHANCED_SIDEBAR_DEBUG === true ||
+			localStorage.getItem("enhanced_sidebar_debug") === "1"
+		);
+	} catch (error) {
+		return window.ENHANCED_SIDEBAR_DEBUG === true;
+	}
+};
+
+const debug_enhanced_sidebar = (...args) => {
+	if (!is_enhanced_sidebar_debug_enabled()) return;
+	console.log("[Enhanced Sidebar Debug]", ...args);
+};
+
 frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 	async make_sidebar() {
 		if (sidebar_build_in_progress) {
@@ -8,8 +24,35 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 		}
 		try {
 			sidebar_build_in_progress = true;
-			this.wrapper.find(".sidebar-items").empty();
 			const menu_items = await this.get_menu_items();
+			debug_enhanced_sidebar("Fetched menu items", menu_items);
+
+			const has_custom_items =
+				menu_items &&
+				typeof menu_items === "object" &&
+				Object.values(menu_items).some(
+					(items) => Array.isArray(items) && items.length > 0
+				);
+
+			if (menu_items && typeof menu_items === "object") {
+				const category_counts = Object.fromEntries(
+					Object.entries(menu_items).map(([category, items]) => [
+						category,
+						Array.isArray(items) ? items.length : 0,
+					])
+				);
+				debug_enhanced_sidebar("Category item counts", category_counts);
+			}
+
+			if (!has_custom_items) {
+				debug_enhanced_sidebar(
+					"No custom sidebar items found. Falling back to core sidebar rendering."
+				);
+				super.make_sidebar();
+				return;
+			}
+
+			this.wrapper.find(".sidebar-items").empty();
 
 			const page_groups = menu_items;
 
@@ -32,7 +75,13 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 
 			this.setup_sorting();
 			this.set_active_workspace_item();
-			this.set_hover();
+			if (typeof this.set_hover === "function") {
+				this.set_hover();
+			}
+		} catch (error) {
+			console.warn("Enhanced sidebar failed; falling back to core sidebar:", error);
+			debug_enhanced_sidebar("Fallback reason: exception during custom rendering", error);
+			super.make_sidebar();
 		} finally {
 			sidebar_build_in_progress = false;
 		}
@@ -44,7 +93,11 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 				method: "enhanced_sidebar.api.get_sidebar_menu_items",
 				type: "GET",
 			})
-			.then((res) => res.message);
+			.then((res) => res.message)
+			.catch((error) => {
+				debug_enhanced_sidebar("Sidebar API call failed", error);
+				throw error;
+			});
 	}
 
 	setup_collapsible_sections() {
@@ -143,7 +196,7 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 			// $(".close-sidebar").css("display", "none");
 			$("body").css("overflow", "auto");
 			if (frappe.is_mobile()) {
-				this.close_sidebar();
+				this.close();
 			}
 		});
 
@@ -196,8 +249,10 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 
 		const icon_html = item.use_custom_icon
 			? `<img src="${item.custom_icon}" class="sidebar-item-icon" style="width: 22px; height: 22px; object-fit: contain;">`
-			: `<span class="sidebar-item-icon">${frappe.utils.icon(item.icon, "lg")}</span>`;
-
+			: `<span class="sidebar-item-icon">${frappe.utils.icon(
+					item.icon || "list",
+					"lg"
+			  )}</span>`;
 
 		return $(`
 			<li class="sidebar-item-container ${is_workspace ? "workspace-item" : ""}"
@@ -247,10 +302,10 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 	toggle_sidebar() {
 		if (!this.sidebar_expanded) {
 			$(".body-sidebar-container").find(".sidebar-section-title").show();
-			this.open_sidebar();
+			this.open();
 		} else {
 			$(".body-sidebar-container").find(".sidebar-section-title").hide();
-			this.close_sidebar();
+			this.close();
 		}
 	}
 };
