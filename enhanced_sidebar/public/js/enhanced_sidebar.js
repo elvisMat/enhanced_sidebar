@@ -73,7 +73,9 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 				!frappe.dom.is_element_in_viewport(this.wrapper.find(".selected")) &&
 				this.wrapper.find(".selected")[0].scrollIntoView();
 
-			this.setup_sorting();
+			if (typeof this.setup_sorting === "function") {
+				this.setup_sorting();
+			}
 			this.set_active_workspace_item();
 			if (typeof this.set_hover === "function") {
 				this.set_hover();
