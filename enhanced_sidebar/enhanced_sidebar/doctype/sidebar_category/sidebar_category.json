@@ -6,7 +6,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "category_name"
+  "category_name",
+  "permitted_roles"
  ],
  "fields": [
   {
@@ -14,12 +15,24 @@
    "fieldtype": "Data",
    "label": "Category Name",
    "unique": 1
+  },
+  {
+   "default": "All",
+   "fieldname": "permitted_roles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Roles",
+   "options": "Has Role"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-09-02 15:00:37.769712",
+ "links": [
+  {
+   "link_doctype": "Sidebar Menu Item",
+   "link_fieldname": "category"
+  }
+ ],
+ "modified": "2026-04-12 15:19:27.636743",
  "modified_by": "Administrator",
  "module": "Enhanced Sidebar",
  "name": "Sidebar Category",
@@ -37,6 +50,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "All"
   }
  ],
  "row_format": "Dynamic",
