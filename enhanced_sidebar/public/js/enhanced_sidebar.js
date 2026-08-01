@@ -56,14 +56,25 @@ frappe.ui.Sidebar = class Sidebar extends original_Sidebar_class {
 
 			const page_groups = menu_items;
 
+			// Helper: lowest idx among a category's items (used to order the category itself)
+			const get_category_idx = (items) => {
+				if (!Array.isArray(items) || !items.length) return Infinity;
+				return Math.min(...items.map((item) => item.idx ?? Infinity));
+			};
+
 			const categories = Object.keys(page_groups).sort((a, b) => {
 				if (a === __("General")) return -1;
 				if (b === __("General")) return 1;
-				return a.localeCompare(b);
+				return get_category_idx(page_groups[a]) - get_category_idx(page_groups[b]);
 			});
 
 			categories.forEach((category) => {
-				this.build_sidebar_section(category, page_groups[category]);
+				// Sort items within the category by idx before building the section
+				const sorted_items = Array.isArray(page_groups[category])
+					? [...page_groups[category]].sort((a, b) => (a.idx ?? 0) - (b.idx ?? 0))
+					: page_groups[category];
+
+				this.build_sidebar_section(category, sorted_items);
 			});
 
 			this.setup_collapsible_sections();
