@@ -29,6 +29,7 @@ def get_sidebar_menu_items():
 	sidebar_categories = frappe.get_all(
      	"Sidebar Category",
       	fields=["name", "category_name", "idx"],
+		order_by="idx asc"
     )
 
 	# Initialize a dictionary to store the categorized menu items
@@ -45,7 +46,7 @@ def get_sidebar_menu_items():
 			"Sidebar Menu Item",
 			filters={"category": category.name},
 			fields=["name", "name1", "route", "url", "icon", "custom_icon", "use_custom_icon", "link_to", "idx"],
-			order_by="idx",
+			order_by="idx asc",
 		)
 
 		permitted_menu_items = [
